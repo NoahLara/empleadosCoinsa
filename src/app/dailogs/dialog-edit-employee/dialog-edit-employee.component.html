@@ -1,0 +1,40 @@
+
+
+
+<h2 mat-dialog-title>Editar Empleado</h2>
+<mat-dialog-content>
+
+    <div>
+        <form [formGroup]="editForm">
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre:</mat-label>
+                    <input matInput formControlName="nombre">
+                </mat-form-field>
+            </p>
+           <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Edad:</mat-label>
+                    <input matInput formControlName="edad">
+                </mat-form-field>
+           </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Cargo:</mat-label>
+                    <input matInput formControlName="cargo">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Salario:</mat-label>
+                    $<input matInput formControlName="salario">
+                </mat-form-field>
+            </p>
+        </form>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button [disabled]="!editForm.valid"  mat-dialog-close mat-raised-button color="primary" [mat-dialog-close]="this.editForm.value">Save</button>
+    <button mat-raised-button color="danger" cdkFocusInitial mat-dialog-close="false">Cancel</button>
+</mat-dialog-actions>

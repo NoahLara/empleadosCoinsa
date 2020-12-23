@@ -1,0 +1,111 @@
+
+
+<div style="padding:20px">
+    <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
+            <h2>Control de Empleados</h2>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Nombre Completo:</mat-label>
+                <input 
+                    type="text"
+                    matInput 
+                    placeholder="Placeholder"
+                    formControlName="nombre"
+                >
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Edad:</mat-label>
+                <input 
+                    type="number"
+                    min=18
+                    max=60
+                    matInput 
+                    placeholder="Placeholder"
+                    formControlName="edad"
+                >
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Cargo o Puesto:</mat-label>
+                <input 
+                    type="text"
+                    matInput 
+                    placeholder="Placeholder"
+                    formControlName="cargo"
+                >
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Salario:</mat-label>
+                <span matPrefix>$ &nbsp;</span>
+                <input 
+                    type="number"
+                    min=300
+                    max=10000
+                    matInput 
+                    placeholder="Placeholder"
+                    formControlName="salario"
+                >
+            </mat-form-field>
+        </p>
+
+
+        <button 
+            type="submit" 
+            mat-raised-button 
+            color="secondary" 
+            [disabled]="!employeeForm.valid">
+            Guardar
+        </button>
+    </form>
+    
+    <button 
+    mat-raised-button 
+    color="primary" 
+    (click)="resetEmployeeForm()">
+    Limpiar Campos
+|</button>
+    
+</div>
+
+<div style="padding: 20px;">
+    <h4>Buscador:</h4>
+    <mat-form-field appearance="legacy">
+        <input 
+            type="text"
+            matInput 
+            placeholder="Buscar por nombre"
+            (keyup)="buscar($event)"
+        >
+    </mat-form-field>
+</div>
+
+<table>
+    <thead>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Cargo</th>
+      <th>Salario</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados;let i = index;">
+         <td>{{empleado.id}}</td>
+        <td>{{empleado.nombre}}</td>
+        <td>{{empleado.edad}}</td>
+        <td>{{empleado.cargo}}</td>
+        <td>${{empleado.salario}}</td>
+        <td>
+            <button mat-raised-button color="primary" (click)="openDialog(empleado)">Edit</button>
+            <button mat-raised-button color="secondary" (click)="deleteEmpleado(empleado)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
