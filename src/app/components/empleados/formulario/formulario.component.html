@@ -3,6 +3,12 @@
 <div style="padding:20px">
     <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
             <h2>Control de Empleados</h2>
+        
+            <div class="imgUser" [style.backgroundImage]="'url('+ urlImg+')'"></div>
+        <p>
+            <input type="file" (change)="fileChanged($event)" #imagenBoton style="display: none;">
+            <button mat-raised-button color="accent" type="button" (click)="imagenBoton.click()">Escoger fotografía del empleado</button>
+        </p>
         <p>
             <mat-form-field appearance="legacy">
                 <mat-label>Nombre Completo:</mat-label>
@@ -12,6 +18,7 @@
                     placeholder="Placeholder"
                     formControlName="nombre"
                 >
+                
             </mat-form-field>
         </p>
         <p>
@@ -77,6 +84,7 @@
     <mat-form-field appearance="legacy">
         <input 
             type="text"
+            id="empleadoBuscador"
             matInput 
             placeholder="Buscar por nombre"
             (keyup)="buscar($event)"
@@ -87,14 +95,19 @@
 <table>
     <thead>
       <th>ID</th>
+      <th>Imagen</th>
       <th>Nombre</th>
       <th>Edad</th>
       <th>Cargo</th>
       <th>Salario</th>
     </thead>
     <tbody>
+       <tr *ngIf="empleados.length === 0">
+          <p>Empleado no encontrado</p>
+       </tr> 
       <tr *ngFor="let empleado of empleados;let i = index;">
-         <td>{{empleado.id}}</td>
+        <td>{{empleado.id}}</td>
+        <td><div class="previewImg" [style.backgroundImage]="'url('+empleado.img+')'"></div></td>
         <td>{{empleado.nombre}}</td>
         <td>{{empleado.edad}}</td>
         <td>{{empleado.cargo}}</td>
@@ -106,6 +119,4 @@
       </tr>
     </tbody>
   </table>
-
-
 

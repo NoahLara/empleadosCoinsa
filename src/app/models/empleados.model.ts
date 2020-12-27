@@ -1,7 +1,8 @@
-export class Empleados {
-    id: string  | undefined;
-    nombre: string  | undefined;
-    edad: number    | undefined;
-    cargo: string   | undefined;
-    salario: number | undefined;
+export interface Empleados {
+    id: string;
+    nombre: string;
+    edad: number;
+    cargo: string;
+    salario: number;
+    img:string;
 }

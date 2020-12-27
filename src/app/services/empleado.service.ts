@@ -15,15 +15,6 @@ export class EmpleadoService {
     return this.firestore.collection('Empleados').snapshotChanges();
   }
 
-  searchEmployee(empleadoName:string){
-
-    // return this.firestore.collection('Empleados', ref => ref.where('nombre', '==', empleadoName))
-    //   .valueChanges().pipe().subscribe((data)=>{
-    //     console.log(data);
-    //   })
-    // ref.collection('user').orderBy('name').startAt(name).endAt(name+'\uf8ff')
-  }
-
   createEmployee(empleado:Empleados){
     return this.firestore.collection('Empleados').add(empleado);
   }

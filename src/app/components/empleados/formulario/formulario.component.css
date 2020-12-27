@@ -1,0 +1,27 @@
+
+
+table{
+    text-align: center;
+}
+
+.imgUser{
+    width:200px;
+    height: 200px;
+    border:2px solid black;
+    box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.781);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:20px;
+}
+
+.previewImg{
+    width:50px;
+    height: 50px;
+    border:2px solid black;
+    border-radius: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:5px;
+}
