@@ -10,7 +10,7 @@ import { FormularioComponent } from './components/empleados/formulario/formulari
 
 //Material Design
 import { MaterialModule } from './material/material.module';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 
 //Firebase
